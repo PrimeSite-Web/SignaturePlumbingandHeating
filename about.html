@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signature Plumbing and Heating - About Us</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Signature Plumbing and Heating</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: white;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-
+        body {
+            background-color: #222;
+            color: white;
+        }
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -24,49 +27,77 @@
             top: 0;
             z-index: 1000;
         }
-
         .logo {
             font-size: 20px;
             font-weight: bold;
             color: white;
         }
-
         nav ul {
             list-style: none;
             display: flex;
         }
-
         nav ul li {
             margin-left: 20px;
         }
-
         nav ul li a {
             text-decoration: none;
             color: white;
             font-size: 16px;
             transition: 0.3s;
         }
-
         nav ul li a:hover {
             color: #00AEEF;
         }
-
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: black;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            nav ul li a {
+                font-size: 18px;
+            }
+            nav.active {
+                display: block;
+            }
+        }
+        /* Container */
         .container {
             max-width: 800px;
             margin: 100px auto 20px;
             padding: 20px;
             text-align: center;
         }
-
         h1 {
             color: #00AEEF;
             margin-bottom: 20px;
         }
-
         p {
             line-height: 1.6;
+            margin-bottom: 15px;
         }
-
         .back-home {
             display: inline-block;
             margin-top: 20px;
@@ -78,11 +109,9 @@
             border-radius: 5px;
             transition: 0.3s;
         }
-
         .back-home:hover {
             background: #007bbd;
         }
-
         footer {
             text-align: center;
             padding: 15px;
@@ -98,30 +127,30 @@
 
     <header>
         <div class="logo">Signature Plumbing and Heating</div>
+        <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="locate.html">Locate Us</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
         <h1>About Us</h1>
-        <p>At Signature Plumbing and Heating, we pride ourselves on being a trusted name in residential and commercial plumbing and heating services. With over a decade of experience in the industry, we’ve built our reputation on quality workmanship, honest pricing, and exceptional customer care.</p>
-        
-        <p>Our company was founded with a simple mission: to provide reliable plumbing and heating solutions with integrity and professionalism. From minor leaks and clogged drains to full bathroom renovations and central heating installations, we approach every job with the same commitment to excellence and attention to detail.</p>
-        
-        <p>We are a team of fully licensed and insured professionals who stay up to date with the latest plumbing technologies and standards. Our technicians are not only skilled, but also friendly, respectful, and dedicated to solving your problems quickly and efficiently.</p>
-        
-        <p>At Signature Plumbing and Heating, we understand how disruptive plumbing or heating issues can be to your daily routine. That’s why we offer fast response times, 24/7 emergency services, and flexible scheduling options to fit your needs. We take the time to explain your options clearly and work within your budget to find the best possible solution.</p>
-        
-        <p>What sets us apart is our commitment to long-term relationships with our clients. We don’t just fix problems—we help prevent them. Through routine maintenance services and expert advice, we aim to ensure that your plumbing and heating systems run smoothly year-round.</p>
-        
-        <p>Whether you’re a homeowner, a property manager, or a business owner, Signature Plumbing and Heating is here to serve you with reliability, transparency, and craftsmanship that speaks for itself. When you choose us, you’re not just getting a service—you’re gaining a dependable partner in comfort and convenience.</p>
-        
+        <p>At Signature Plumbing and Heating, we are dedicated to delivering top-notch plumbing and heating solutions for residential and commercial clients. With over a decade of experience, our expert team ensures every job is handled with professionalism, precision, and care.</p>
+
+        <p>Our services range from routine maintenance and emergency repairs to complete system installations. We specialize in heating systems, bathroom plumbing, leak detection, pipe replacements, and more. We use the latest tools and industry best practices to ensure your systems operate safely and efficiently.</p>
+
+        <p>Customer satisfaction is at the heart of everything we do. We pride ourselves on transparent communication, reliable scheduling, and fair pricing. Whether it's a small fix or a major renovation, we treat every project with the utmost respect and attention to detail.</p>
+
+        <p>Our certified technicians are fully licensed and insured, continually updating their skills to stay current with the latest technology and regulations. We are committed to providing eco-friendly solutions that reduce your environmental footprint while saving you money.</p>
+
+        <p>Signature Plumbing and Heating is your trusted partner for quality, dependable service you can count on. Reach out today to experience our exceptional service firsthand and keep your home or business comfortable year-round.</p>
+
         <a href="index.html" class="back-home">Back to Home</a>
     </div>
 
@@ -129,5 +158,16 @@
         <p>&copy; 2025 Signature Plumbing and Heating. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle Script
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>
+            
