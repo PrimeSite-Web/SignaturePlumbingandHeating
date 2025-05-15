@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Locate Us - Signature Plumbing and Heating</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: white;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
+        body {
+            background-color: #222;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -34,8 +40,6 @@
         nav ul {
             list-style: none;
             display: flex;
-            margin: 0;
-            padding: 0;
         }
 
         nav ul li {
@@ -55,14 +59,17 @@
 
         .menu-toggle {
             display: none;
-            font-size: 28px;
+            font-size: 24px;
             background: none;
             border: none;
             color: white;
             cursor: pointer;
+            position: fixed; /* Fix position for mobile */
+            top: 15px;
+            right: 15px;
+            z-index: 1100;
         }
 
-        /* Mobile styles */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -70,27 +77,26 @@
 
             nav {
                 display: none;
-                position: absolute;
+                position: fixed;
                 top: 60px;
                 right: 0;
                 background: black;
                 width: 100%;
                 text-align: center;
+                z-index: 1000;
             }
 
             nav ul {
                 flex-direction: column;
-                padding: 10px 0;
+                padding: 10px;
             }
 
             nav ul li {
                 margin: 10px 0;
-                margin-left: 0;
             }
 
             nav ul li a {
                 font-size: 18px;
-                display: block;
             }
 
             nav.active {
@@ -98,46 +104,31 @@
             }
         }
 
-        .container {
+        /* Container for map */
+        .map-container {
+            margin: 100px auto 40px;
             max-width: 900px;
-            margin: 100px auto 20px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #00AEEF;
-            margin-bottom: 20px;
+            width: 90%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
         }
 
         iframe {
             width: 100%;
-            height: 450px;
-            border: 0;
-            border-radius: 8px;
+            height: 100%;
+            border: none;
         }
 
-        .map-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 18px;
-            background: #00AEEF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .map-button:hover {
-            background: #007bbd;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
             padding: 15px;
             background-color: #333;
-            margin-top: 20px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
         }
     </style>
 </head>
@@ -157,26 +148,24 @@
         </nav>
     </header>
 
-    <div class="container">
-        <h1>Locate Us</h1>
-        <p>Visit us at:</p>
-        <p><strong>200 Commissioner St, City and Suburban, Johannesburg, 2000</strong></p>
-
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.0712791877223!2d28.057398575190647!3d-26.20362467708114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950d2ce1e34389%3A0xd3a4cb7f4c89dc17!2s200%20Commissioner%20St%2C%20City%20and%20Suburban%2C%20Johannesburg%2C%202000%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1715776128909!5m2!1sen!2sza"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
-        <a class="map-button" href="https://www.google.com/maps/place/200+Commissioner+St,+City+and+Suburban,+Johannesburg,+2000,+South+Africa" target="_blank" rel="noopener">Open in Google Maps</a>
-    </div>
+    <main>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3569.5464990683166!2d28.04731791505385!3d-26.204791883453947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e951b12d5605555%3A0x5f7b9140b0e16942!2s200%20Commissioner%20St%2C%20City%20and%20Suburban%2C%20Johannesburg%2C%202000!5e0!3m2!1sen!2sza!4v1689000000000!5m2!1sen!2sza" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Signature Plumbing and Heating Location">
+            </iframe>
+        </div>
+    </main>
 
     <footer>
         <p>&copy; 2025 Signature Plumbing and Heating. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
 
@@ -184,6 +173,6 @@
             nav.classList.toggle('active');
         });
     </script>
+
 </body>
 </html>
-
