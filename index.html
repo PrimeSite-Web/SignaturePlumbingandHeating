@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signature Plumbing and Heating</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #222;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00AEEF;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: black;
+                width: 100%;
+                text-align: center;
+                z-index: 1001;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 18px;
+            }
+
+            nav.active {
+                display: block;
+            }
+        }
+
+        /* Slideshow */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay h1 {
+            font-size: 40px;
+            color: #00AEEF;
+        }
+
+        .overlay p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 18px;
+            background: #00AEEF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #007bbd;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Signature Plumbing and Heating</div>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="locate.html">Locate Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="slideshow">
+            <img src="https://www.checkatrade.com/blog/wp-content/uploads/2024/01/TRADEStypes-of-plumbers-and-their-roles.jpg" class="active" alt="Plumber working">
+            <img src="https://insights.workwave.com/wp-content/uploads/2020/06/plumber-fixing-white-sink-pipe-with-adjustable-wrench-picture-id1150199946.jpg" alt="Fixing pipe">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npCZv4zWmGwIAN9VwHB12lOUYDC76nzv2wK2AZNri6rCQWMWNZ9TAMLVt7GRvfV6oxHrWReVV_KD_lNtkzGVc-r0--zyH_QvBR7CmTPF93adJ3Kz6_Jd8JvMo1KlcuLDWw_Td5DyA=s680-w680-h510-rw" alt="Plumber tools">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4norrxREGq0m1lw2jvJwPmyE27Plb2mErcSmxpq2PLyO-RX1-UsEs-ke55JO1S9VET8VT4w4dQ1ImTQgy6CCNIb1T3cRTbUm9BC-G0nZI7_p0uzYwFR1QlV8OTGri_AGJsoXBNhL0Q=s680-w680-h510-rw" alt="Plumbing work">
+        </div>
+
+        <div class="overlay">
+            <h1>Signature Plumbing and Heating</h1>
+            <p>Expert Plumbing. Trusted Service. Every Time.</p>
+            <a href="services.html" class="btn">View Services</a>
+            <a href="contact.html" class="btn">Get a Quote</a>
+            <a href="locate.html" class="btn">Locate Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Signature Plumbing and Heating. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Slideshow Functionality
+        let slides = document.querySelectorAll('.slideshow img');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 4000); // Change slide every 4 seconds
+
+        // Mobile Menu Toggle and close on link click
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
